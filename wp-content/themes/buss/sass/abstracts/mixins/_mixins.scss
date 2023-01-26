@@ -1,0 +1,60 @@
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Column width with margin
+//@mixin column-width($numberColumns: 3) {
+//	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+//}
+
+
+$breakpoints: (
+	'extra-small': (min-width:  480px),
+	'small':  ( min-width:  768px ),
+	'medium': ( min-width:  1024px ),
+	'large':  ( min-width: 1440px )
+) !default;
+
+$breakpoints-from: (
+	'extra-small': (max-width:  479px),
+	'small':  ( max-width:  767px ),
+	'medium': ( max-width:  1023px ),
+	'large':  ( max-width: 1439px )
+) !default;
+
+/// Mixin to manage responsive breakpoints
+/// @author Kitty Giraudel
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+@mixin respond-to($breakpoint) {
+	// If the key exists in the map
+	@if map-has-key($breakpoints, $breakpoint) {
+		// Prints a media query based on the value
+		@media #{inspect(map-get($breakpoints, $breakpoint))} {
+			@content;
+		}
+	}
+		// If the key doesn't exist in the map
+	@else {
+		@warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+	}
+}
+
+@mixin respond-from($breakpoint) {
+	// If the key exists in the map
+	@if map-has-key($breakpoints-from, $breakpoint) {
+		// Prints a media query based on the value
+		@media #{inspect(map-get($breakpoints-from, $breakpoint))} {
+			@content;
+		}
+	}
+		// If the key doesn't exist in the map
+	@else {
+		@warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints-from)}.";
+	}
+}

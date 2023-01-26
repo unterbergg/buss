@@ -1,0 +1,119 @@
+.services {
+  position: relative;
+  display:  block;
+  overflow: hidden;
+  width: 100vw;
+
+  padding: 1.375rem 1rem 5.25rem 1rem;
+  @include respond-to('small') {
+    padding: 90px 140px 115px 140px;
+  }
+
+  &__heading {
+    text-align: left;
+    color: $white;
+  }
+
+  &__swiper {
+    position: relative;
+    .swiper {
+      &-wrapper {
+        box-sizing: border-box;
+        height: 100%;
+        position: relative;
+        transition-property: transform;
+        width: 100%;
+        z-index: 1;
+
+        display: block;
+        @include respond-to('small') {
+          display: flex;
+        }
+      }
+      &-slide {
+        box-sizing: border-box;
+        display: flex;
+        min-height: 334px;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        width: 100%;
+        height: auto;
+        margin-bottom: 1.875rem;
+        @include respond-to('small') {
+          width: 388px;
+          height: 600px;
+          margin-bottom: 0;
+        }
+
+        &.slide-title {
+          padding: 3.5rem 3rem;
+          background-color: $red;
+          min-height: unset;
+        }
+      }
+      &-pagination {
+        z-index: 3;
+        @include respond-from('small') {
+          display: none;
+        }
+      }
+      &-horizontal>.swiper-pagination-bullets,
+      &-pagination-bullets.swiper-pagination-horizontal {
+        bottom: -42px;
+        .swiper-pagination-bullet {
+          width: 54px;
+          height: 2px;
+          background: #BEA6A0;
+          margin: 0 6px;
+          opacity: 1;
+          border-radius: unset;
+          &-active {
+            background: $red;
+          }
+        }
+      }
+    }
+  }
+
+  &__slide {
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 52.6%, rgba(0, 0, 0, 0) 100%);
+
+    padding: 50px 42px 40px 42px;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__title {
+    text-decoration: underline;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 15px;
+  }
+  &__excerpt {
+    .p2 {
+      color: $white;
+      margin-bottom: 1.125rem;
+    }
+  }
+  &__button {
+    padding: 0 1.375rem;
+    background-color: $red;
+    color: $white;
+    height: 46px;
+    border: 5px solid $red;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    &:hover, &:focus {
+      background-color: transparent;
+      border-color: $white;
+      svg * {
+        fill: $red;
+      }
+    }
+  }
+
+}

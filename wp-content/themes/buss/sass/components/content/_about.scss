@@ -1,0 +1,190 @@
+.about {
+  background-size: cover;
+
+  padding: 3rem 0;
+  @include respond-to('medium') {
+    padding: 70px 0;
+  }
+
+  &__heading {
+    margin-bottom: 1.875rem;
+    @include respond-to('medium') {
+      margin-bottom: 1.875rem;
+    }
+  }
+
+  &__cols {
+    display: flex;
+    flex-wrap: wrap;
+    @include respond-to('small') {
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__col {
+    &:first-child {
+      width: 100%;
+      margin-bottom: 1.5rem;
+      @include respond-to('small') {
+        margin-right: 2rem;
+        margin-bottom: 0;
+        width: 57%;
+      }
+    }
+    width: 100%;
+    @include respond-to('small') {
+      width: 43%;
+    }
+  }
+
+  &__desc {
+    margin-bottom: 0.875rem;
+    @include respond-to('medium') {
+      margin-bottom: 0.875rem;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    height: 61px;
+
+    grid-gap: 2rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-bottom: 1.625rem;
+  }
+
+  &__icons {
+    background-color: $white;
+    border-radius: 10px;
+  }
+
+  &__address {
+    text-align: center;
+    padding: 1.25rem 0 1rem;
+    background: rgba(255, 255, 255, 0.37);
+    backdrop-filter: blur(10px);
+
+    border-radius: 18px;
+
+    p {
+      font-weight: 500;
+
+      font-size: 18px;
+      line-height: 15px;
+      @include respond-to('small') {
+        font-size: 20px;
+        line-height: 26px;
+      }
+      &:not(:last-child) {
+        margin-bottom: 21px;
+        @include respond-to('small') {
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    a {
+      color: $red;
+      font-weight: 500;
+
+      font-size: 18px;
+      line-height: 15px;
+      @include respond-to('small') {
+        font-size: 20px;
+        line-height: 26px;
+      }
+    }
+  }
+
+  .contact {
+    &__heading {
+      margin-bottom: .75rem;
+      @include respond-to('small') {
+        margin-bottom: 1rem;
+      }
+    }
+    .wpcf7-response-output {
+      border: none;
+      padding: 0;
+      margin: 0;
+      font-weight: 200;
+      font-size: 18px;
+      line-height: 29px;
+      display: flex;
+      align-items: center;
+
+      color: $red;
+    }
+    &__row {
+      position: relative;
+      margin-bottom: 1rem;
+    }
+    input {
+      &:not([type="submit"]) {
+        font-weight: 400;
+        font-size: 1.25rem;
+        line-height: 162%;
+        width: 100%;
+        color: $black;
+        border: none;
+        border-bottom: 0.5px solid #3C3C3C;
+        background: transparent;
+        border-radius: 0;
+        outline: none;
+
+        padding-top: 1rem;
+
+        &:not(:focus), &:placeholder-shown {
+          &~ label {
+            top: unset;
+            bottom: 1rem;
+            font-weight: 200;
+            font-size: 1rem;
+          }
+        }
+        &:not(:placeholder-shown), &:focus {
+          &~ label {
+            top: 0;
+            bottom: unset;
+            font-weight: 200;
+            font-size: .75rem;
+          }
+        }
+
+        &::placeholder {
+          color: transparent;
+        }
+      }
+      &[type="submit"] {
+        margin-top: .5rem;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 162%;
+        padding: 0 2rem;
+        height: 50px;
+        border-radius: 5px;
+        cursor: pointer;
+        border: 5px solid $red;
+        display: flex;
+        align-items: center;
+        background-color: $red;
+
+        &:hover, &:focus {
+          background-color: transparent;
+          border-color: $white;
+          svg * {
+            fill: $red;
+          }
+        }
+
+        text-align: center;
+
+        color: #FFFFFF;
+      }
+    }
+    label {
+      position: absolute;
+      color: $black;
+    }
+  }
+}

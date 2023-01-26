@@ -1,0 +1,39 @@
+.installation {
+  background-color: $block-bg;
+
+  padding: 3rem 0;
+  @include respond-to('medium') {
+    padding: 70px 0;
+  }
+
+  &__cards {
+    display: grid;
+
+    grid-gap: 2.375rem;
+    margin-top: 1.125rem;
+    grid-template-columns: 1fr;
+    @include respond-to('small') {
+      grid-template-columns: 1fr 1fr
+    }
+    @include respond-to('medium') {
+      grid-gap: 118px;
+      grid-template-columns: 1fr 1fr 1fr;
+
+      margin-top: 1.375rem;
+    }
+
+    .card {
+      &__img {
+        display: flex;
+        margin-bottom: 0.5rem;
+        @include respond-to('medium') {
+          margin-bottom: 2rem;
+        }
+
+        img {
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}

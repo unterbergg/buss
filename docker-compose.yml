@@ -1,0 +1,52 @@
+version: '3.3'
+services:
+  wp:
+    depends_on:
+      - db
+    image: wordpress:php8.0
+    restart : always
+    links:
+      - db:mysql
+    ports:
+      - "80:80"
+    working_dir: /var/www/html
+    volumes:
+      - "./wp-content:/var/www/html/wp-content:cached"
+      - "./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: ${DB_USER}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+      WORDPRESS_DB_NAME: ${DB_NAME}
+      WORDPRESS_DEBUG: true
+      WORDPRESS_CONFIG_EXTRA:
+        define('WP_ALLOW_REPAIR', true );
+    networks:
+      - buss-network
+
+  db:
+    image: mysql:5.7
+    restart: always
+    volumes:
+      - "./mysql:/var/lib/mysql"
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - buss-network
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1
+    networks:
+      - buss-network
+
+networks:
+  buss-network:
+

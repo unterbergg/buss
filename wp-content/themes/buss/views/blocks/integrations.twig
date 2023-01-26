@@ -1,0 +1,41 @@
+<section class="integrations">
+    <div class="container">
+        {% if fields.title %}
+            <h2 class="integration__heading">
+                {{ fields.title }}
+            </h2>
+        {% endif %}
+        {% if fields.text %}
+            <p class="integrations__text p2">
+                {{ fields.text }}
+            </p>
+        {% endif %}
+        {% if fields.gallery %}
+            <div class="integrations__services">
+                {% for item in fields.gallery %}
+                    <div class="integrations__icon">
+                        {{ fn('wp_get_attachment_image', item, '', 'false', {'class' : ''}) }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <div class="integrations__list">
+            {% if fields.image %}
+                <div class="integrations__img">
+                    {{ fn('wp_get_attachment_image', fields.image, 'full', 'false', {'class' : ''}) }}
+                </div>
+            {% endif %}
+            {% if fields.list %}
+                <ul class="integrations__items">
+                    {% for item in fields.list %}
+                        <li class="integrations__item">
+                            <p class="p3">
+                                {{ item.text }}
+                            </p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,37 @@
+<section class="booking">
+    <div class="container">
+        {% if fields.title %}
+            <h2 class="booking__heading">
+                {{ fields.title }}
+            </h2>
+        {% endif %}
+
+        {% if fields.cards %}
+            <div class="booking__grid">
+                {% for card in fields.cards %}
+                    <div class="{{ loop.index %2 ? "odd" : "even" }}">
+                        <div class="card">
+                            <div class="card__img">
+                                {% if card.image %}
+                                    {{ fn('wp_get_attachment_image', card.image, 'full', 'false', {'class' : ''}) }}
+                                {% endif %}
+                            </div>
+                            <div class="card__text">
+                                {% if card.title %}
+                                    <p class="card__title p2">
+                                        {{ card.title }}
+                                    </p>
+                                {% endif %}
+                                {% if card.text %}
+                                    <p class="card__p p1">
+                                        {{ card.text }}
+                                    </p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</section>

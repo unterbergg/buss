@@ -1,0 +1,30 @@
+<section class="business-get">
+    <div class="container">
+        {% if fields.title %}
+            <h2 class="business-get__heading">
+                {{ fields.title }}
+            </h2>
+        {% endif %}
+        {% if fields.background_image %}
+            <div class="business-get__img">
+                {{ fn('wp_get_attachment_image', fields.background_image, 'full', 'false' ) }}
+            </div>
+        {% endif %}
+        {% if fields.list %}
+            <ol class="business-get__list">
+                {% for item in fields.list %}
+                    <li class="business-get__listItem {{ loop.index %2 ? "odd" : "even" }}">
+                       <div>
+                           <p class="p2">
+                               {{ item.title }}
+                           </p>
+                           <p class="p3">
+                               {{ item.text }}
+                           </p>
+                       </div>
+                    </li>
+                {% endfor %}
+            </ol>
+        {% endif %}
+    </div>
+</section>

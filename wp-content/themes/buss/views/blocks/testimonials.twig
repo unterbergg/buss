@@ -1,0 +1,30 @@
+<section class="testimonials">
+    <div class="container">
+        {% if fields.title %}
+            <h2 class="testimonials__heading">
+                {{ fields.title }}
+            </h2>
+        {% endif %}
+
+        {% if fields.testimonials %}
+            <div class="testimonials__grid">
+                {% for testimonial in fields.testimonials %}
+                    <div class="testimonial">
+                        <div class="testimonial__img">
+                            {{ fn('wp_get_attachment_image', testimonial.photo, 'full', 'false', {'class' : ''}) }}
+                        </div>
+                        <p class="testimonial__name p2">
+                            {{ testimonial.name }}
+                        </p>
+                        <p class="testimonial__date p2">
+                            {{ testimonial.date }}
+                        </p>
+                        <p class="testimonial__text">
+                            {{ testimonial.text }}
+                        </p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</section>

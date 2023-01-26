@@ -1,0 +1,99 @@
+.business-get {
+  padding: 3rem 0;
+  @include respond-to('medium') {
+    padding: 70px 0;
+  }
+  background-color: $block-bg;
+  position: relative;
+  &__img {
+    position: static;
+    display: flex;
+    img {
+      margin: 0 auto 1rem auto;
+      width: 100%;
+      @include respond-to('medium') {
+        margin: 0 auto;
+        width: 75%;
+      }
+      @include respond-to('large') {
+        width: 100%;
+      }
+    }
+    @include respond-to('medium') {
+      position: absolute;
+      left: 46%;
+      bottom: 90px;
+      margin-right: -50%;
+      transform: translate(-50%, 0);
+      z-index: 1;
+    }
+  }
+  &__heading {
+    text-align: center;
+    z-index: 2;
+    position: relative;
+  }
+  &__list {
+    counter-reset: num;
+    margin: 0;
+    padding: 0;
+    @include respond-to('small') {
+      display: flex;
+      flex-wrap: wrap;
+      z-index: 2;
+      position: relative;
+      margin-top: 2rem;
+    }
+  }
+  &__listItem {
+    display: flex;
+    width: 100%;
+    margin-top: 2rem;
+    @include respond-to('small') {
+      width: 50%;
+      position: relative;
+      margin-top: 3.25rem;
+
+      &.odd {
+        justify-content: flex-start;
+      }
+      &.even {
+        justify-content: flex-end;
+      }
+    }
+    & > div {
+      max-width: 260px;
+      position: relative;
+      margin-left: 62px;
+      @include respond-to('large') {
+        margin-left: 0;
+      }
+
+      .p2 {
+        margin-bottom: 1rem;
+      }
+      &::before {
+        content: counter(num);
+        counter-increment: num;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: -10px;
+        left: -62px;
+        width: 46px;
+        height: 46px;
+        background: $red;
+        color: $white;
+        text-align: center;
+        border-radius: 50%;
+        border: 3px solid $white;
+        outline: 2px solid $red;
+
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 29px;
+      }
+    }
+  }
+}

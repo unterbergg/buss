@@ -1,0 +1,136 @@
+.popup {
+  z-index: 3;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgb(60 60 60 / 60%);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .4s ease-in-out,
+  visibility .4s ease-in-out;
+  text-align: center;
+  display: block;
+
+  &__wrapper {
+    display: inline-flex;
+    vertical-align: middle;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 100vw;
+    height: 100vh;
+    //@include respond-to('medium') {
+    //  width: 70vw;
+    //  height: 78vh;
+    //}
+  }
+
+  &__content {
+    display: none;
+    margin: auto;
+    position: relative;
+    background-color: $white;
+
+    aspect-ratio: 16 / 9;
+    width: 100vw;
+
+    padding: 3rem 1rem;
+    @include respond-to('medium') {
+      padding: 3.75rem 5.5rem;
+      width: 68vw;
+    }
+
+
+    &#popup__services {
+      max-width: 830px;
+      @include respond-from('small') {
+        min-height: 100vh;
+      }
+    }
+
+    &#popup__video {
+      padding: 3.5rem 1.5rem;
+      @include respond-to('medium') {
+        padding: 5.5rem;
+      }
+      @include respond-from('medium') {
+        min-height: unset;
+      }
+
+      .popup__close {
+        top: 1.5rem;
+        right: 1.5rem;
+        @include respond-to('medium') {
+          top: 2rem;
+          right: 2rem;
+        }
+      }
+    }
+
+    .video-container { position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; }
+
+    .video-container iframe, .video-container object, .video-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+    .text-container {
+      h2 {
+        margin-bottom: 1rem;
+        @include respond-to('medium') {
+          margin-bottom: 2.75rem;
+        }
+      }
+      p {
+        font-style: normal;
+        font-weight: 200;
+        margin-bottom: 1rem;
+        @include respond-to('medium') {
+          margin-bottom: 2rem;
+        }
+        @include respond-to('small') {
+          font-size: 18px;
+          line-height: 29px;
+        }
+        strong {
+          font-weight: 500;
+          font-size: 20px;
+          line-height: 130%;
+        }
+      }
+      a {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 130%;
+
+        color: $red;
+      }
+    }
+  }
+
+  &__close {
+    position: absolute;
+
+    width: 20px;
+    height: 20px;
+    right: 1.5rem;
+    top: 1.5rem;
+    @include respond-to('medium') {
+      width: 40px;
+      height: 40px;
+      right: 2.125rem;
+      top: 2.125rem;
+    }
+  }
+}
+
+body.show-modal {
+  overflow: hidden;
+
+  .popup {
+    visibility: visible;
+    opacity: 1;
+    overflow: auto;
+  }
+}

@@ -1,0 +1,197 @@
+.nav {
+  &-header {
+    display: flex;
+    align-items: center;
+
+
+    &__items {
+      margin: 0;
+      padding: 0;
+      display: none;
+      @include respond-to('medium') {
+        display: block;
+      }
+      &-mob {
+        background: rgba(0, 0, 0, 0.37);
+        backdrop-filter: blur(25px);
+        height: 100vh;
+        left: 0;
+        opacity: 0;
+        padding: 4.375rem 0.5rem 0.5rem;
+        position: absolute;
+        top: 0;
+        transform: translateY(-3.75rem);
+        //transition: background-color var(--transition),transform var(--transition),opacity var(--transition);
+        visibility: hidden;
+        width: 100%;
+        @include respond-to('medium') {
+          display: none;
+        }
+
+        .menu {
+          margin: 0;
+          width: calc(100% - 60px);
+          background: rgba(255, 255, 255, 0.8);
+          left: 0;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          overflow-y: scroll;
+          padding: 2rem 1.5rem 1.625rem 1.5rem;
+
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          &__logo-mob {
+            margin-bottom: 2rem;
+            svg {
+              height: 90px;
+            }
+          }
+
+          &__nav {
+            margin: 0;
+            padding: 2rem 0 0;
+          }
+
+          &__item {
+            display: block;
+            padding: .625rem 0 .5rem 0;
+            border-bottom: 1px solid $red-opacity;
+
+            &:last-child {
+              border-bottom: none;
+            }
+
+            a {
+              display: block;
+              font-family: 'Codec Pro';
+              font-style: normal;
+              font-weight: 500;
+              font-size: .875rem;
+              line-height: 140.62%;
+
+              color: $black;
+            }
+          }
+
+          &__contact {
+            font-style: normal;
+            font-weight: 200;
+            font-size: 1rem;
+            line-height: 25px;
+
+            color: $black;
+            border-top: 1px solid $black-opacity;
+
+            //position: absolute;
+            //bottom: 1.635rem;
+            //right: 1.5rem;
+            //left: 1.5rem;
+          }
+
+          &__address {
+            padding: 13px 0 5px 0;
+          }
+
+          &__tel {
+            color: $red;
+          }
+
+          .header__cta {
+            margin-top: 1rem;
+          }
+        }
+
+      }
+    }
+    &__item {
+      display: inline-block;
+      margin-right: 65px;
+      &:last-child {
+        margin-right: 0;
+      }
+      a {
+        font-family: 'Codec Pro';
+        font-style: normal;
+        font-weight: 200;
+
+        font-size: 18px;
+        line-height: 29px;
+        align-items: center;
+        color: $black;
+      }
+    }
+  }
+  &-footer {
+    margin: 0 0 1.25rem 0;
+    @include respond-to('medium') {
+      margin: 0;
+      padding: 3.125rem  0;
+    }
+    display: flex;
+    justify-content: space-between;
+    @include respond-to('medium') {
+      position: relative;
+    }
+    &__items {
+      margin: 0;
+      padding: 0;
+      width: 50%;
+      display: block;
+      @include respond-to('medium') {
+        display: flex;
+        &.left-nav {
+          justify-content: flex-start;
+          padding-left: 20px;
+        }
+        &.right-nav {
+          justify-content: flex-end;
+          padding-right: 12px;
+        }
+      }
+
+    }
+    &__item {
+      display: block;
+      margin: 0 0 20px 0;
+      @include respond-to('medium') {
+        display: inline-block;
+        margin: 0 0 0 46px;
+      }
+      a {
+        font-family: 'Codec Pro';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 140.62%;
+
+        display: flex;
+        align-items: center;
+        color: $white;
+      }
+    }
+    &__logo {
+      position: absolute;
+      display: inline-block;
+      left: 50%;
+
+      top: 2.25rem;
+      transform: translate(-50%, 0);
+      @include respond-to('medium') {
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      svg {
+        width: 169px;
+        height: 87px;
+        @include respond-to('medium') {
+          height: 60px;
+          width: 117px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.companies {
+  --block-margin: 37px;
+  padding: 70px 0;
+  background-color: $block-bg;
+  text-align: center;
+  &__heading {
+    margin-bottom: var(--block-margin);
+  }
+  &__images {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--block-margin);
+  }
+  &__img {
+    &:not(:last-child) {
+      margin-right: 2.625rem;
+      @include respond-to('small') {
+        margin-right: 4rem;
+      }
+    }
+  }
+  &__text {
+    color: $red;
+  }
+}

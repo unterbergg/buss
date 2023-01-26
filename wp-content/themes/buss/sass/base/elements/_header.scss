@@ -1,0 +1,116 @@
+.header {
+  color: $black;
+  z-index: 999;
+  position: sticky;
+  top: 0;
+  background-color: $white;
+
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 0.625rem 0;
+    @include respond-to('medium') {
+      padding: 0.25rem 0;
+    }
+  }
+
+  &__logo {
+    height: 44px;
+    @include respond-to('medium') {
+      height: 62px;
+    }
+    svg {
+      height: 100%;
+    }
+  }
+
+  &__cta {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    & > a {
+      font-family: 'Codec Pro';
+      color: $red;
+      border: 1px solid $red;
+      border-radius: 5px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 134.77%;
+
+      font-size: 1rem;
+      padding: 0.75rem 1rem;
+      @include respond-to('medium') {
+        font-size: 1.125rem;
+        line-height: 134.77%;
+        padding: 0.5rem 1rem;
+      }
+
+      &:hover, &:focus {
+        color: $white;
+        background-color: $red;
+      }
+
+    }
+
+  }
+
+  &__burger {
+    --burger-height: 19px;
+    --burger-width: 28px;
+    --burger-stroke: 3px;
+    --burger-line-translate: calc(var(--burger-height) / 2 - var(--burger-stroke) / 2);
+    width: var(--burger-width);
+    height: var(--burger-height);
+    cursor: pointer;
+    margin-left: 2rem;
+    z-index: 2;
+    flex-direction: column;
+    justify-content: space-between;
+    display: flex;
+    margin: auto 0 auto 50px;
+    @include respond-to('medium') {
+      display: none;
+    }
+
+    span {
+      display: block;
+      height: var(--burger-stroke);
+      width: 100%;
+      background: $red;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+  }
+}
+
+#menu-toggle:checked + .header {
+
+  .nav-header__items-mob{
+    opacity: 1;
+    transform: translate(0);
+    visibility: visible;
+  }
+
+  .header {
+
+    &__burger {
+
+      span {
+        display: none;
+        &:first-of-type {
+          display: block;
+          transform: translateY(var(--burger-line-translate)) rotate(45deg) translateZ(0);
+        }
+
+        &:last-of-type {
+          display: block;
+          transform: translateY(calc(var(--burger-line-translate) * -1)) rotate(-45deg) translateZ(0);
+        }
+      }
+    }
+  }
+}

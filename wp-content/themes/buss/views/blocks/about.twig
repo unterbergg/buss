@@ -1,0 +1,40 @@
+<section class="about" style="background-image: url('{{ fn('wp_get_attachment_image_url', 44, 'full', 'false') }}')"> {# 44 #}
+    <div class="container">
+        {% if fields.title %}
+            <h2 class="about__heading">
+                {{ fields.title }}
+            </h2>
+        {% endif %}
+        <div class="about__cols">
+            <div class="about__col">
+                {% if fields.text %}
+                    <p class="about__desc p3">
+                        {{ fields.text }}
+                    </p>
+                {% endif %}
+                {% if fields.icons %}
+                    <div class="about__grid">
+                        {% for icon in fields.icons %}
+                            {{ fn('wp_get_attachment_image', icon, 'full', 'false', {'class' : ''}) }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                {% if options.address or options.phone or fields.address %}
+                    <div class="about__address">
+                        {{ fields.address ?? options.address }}
+                        <a href="tel: {{ options.phone }}">
+                            Tel.: {{ options.phone }}
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+            {% if fields.form %}
+                <div id="about" class="about__col">
+                    <div class="contact">
+                        {{ fields.form }}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>

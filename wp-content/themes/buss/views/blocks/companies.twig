@@ -1,0 +1,33 @@
+{#
+/**
+ * Block Name: Companies block
+ *
+ * This is the template that displays the example block.
+ */
+#}
+
+<section class="companies">
+    <div class="container">
+        {% if fields.title %}
+            <h2 class="companies__heading">
+                {{ fields.title }}
+            </h2>
+        {% endif %}
+
+        {% if fields.icons %}
+            <div class="companies__images">
+                {%  for icon in fields.icons %}
+                    <div class="companies__img">
+                        {{ fn('wp_get_attachment_image', icon, 'full') }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if fields.text %}
+            <p class="companies__text p1">
+                {{ fields.text }}
+            </p>
+        {% endif %}
+    </div>
+</section>

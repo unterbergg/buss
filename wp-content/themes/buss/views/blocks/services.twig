@@ -1,0 +1,99 @@
+<section class="services">
+    <div class="services__swiper">
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide slide-title">
+                <h2 class="services__heading">
+                    {{ fields.title }}
+                </h2>
+            </div>
+            {% for item in fields.slider %}
+                <div class="swiper-slide" data-bg="{{ item.background_image }}">
+                    <div class="services__slide" >
+                        <p class="services__title">
+                            {{ item.title }}
+                        </p>
+                        <div class="services__excerpt">
+                            <p class="p2">
+                                {{ item.excerpt }}
+                            </p>
+                            <div class="services__description" hidden>
+                                {{ item.popup_content }}
+                            </div>
+                            <a href="#" class="services__button" data-popup="services">
+                                Read more
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+{#            #}
+{#            <div class="swiper-slide" data-bg="http://localhost/wp-content/uploads/2022/09/image-13.jpeg">#}
+{#                <div class="services__slide" >#}
+{#                    <p class="services__title">#}
+{#                        Mobile app#}
+{#                    </p>#}
+{#                    <div class="services__excerpt">#}
+{#                        <p class="p2">#}
+{#                            White label mobile application that bring your clients better experience#}
+{#                        </p>#}
+{#                        <div class="services__description" hidden>#}
+{#                            <h2>#}
+{#                                Mobile app#}
+{#                            </h2>#}
+{#                        </div>#}
+{#                        <a href="#" class="services__button" data-popup="services">#}
+{#                            Read more#}
+{#                        </a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="swiper-slide" data-bg="http://localhost/wp-content/uploads/2022/09/image-13.jpeg">#}
+{#                <div class="services__slide" >#}
+{#                    <p class="services__title">#}
+{#                        Mobile app#}
+{#                    </p>#}
+{#                    <div class="services__excerpt">#}
+{#                        <p class="p2">#}
+{#                            White label mobile application that bring your clients better experience#}
+{#                        </p>#}
+{#                        <a href="#" class="services__button">#}
+{#                            Read more#}
+{#                        </a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="swiper-slide" data-bg="http://localhost/wp-content/uploads/2022/09/image-13.jpeg">#}
+{#                <div class="services__slide" >#}
+{#                    <p class="services__title">#}
+{#                        Mobile app#}
+{#                    </p>#}
+{#                    <div class="services__excerpt">#}
+{#                        <p class="p2">#}
+{#                            White label mobile application that bring your clients better experience#}
+{#                        </p>#}
+{#                        <a href="#" class="services__button">#}
+{#                            Read more#}
+{#                        </a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="swiper-slide" data-bg="http://localhost/wp-content/uploads/2022/09/image-13.jpeg">#}
+{#                <div class="services__slide" >#}
+{#                    <p class="services__title">#}
+{#                        Mobile app#}
+{#                    </p>#}
+{#                    <div class="services__excerpt">#}
+{#                        <p class="p2">#}
+{#                            White label mobile application that bring your clients better experience#}
+{#                        </p>#}
+{#                        <a href="#" class="services__button">#}
+{#                            Read more#}
+{#                        </a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</section>

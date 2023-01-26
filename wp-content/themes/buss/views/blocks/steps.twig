@@ -1,0 +1,58 @@
+<section class="steps">
+    <div class="container">
+        {% if fields.title %}
+            <h2 class="steps__heading">
+                {{ fields.title }}
+            </h2>
+        {% endif %}
+        {% if fields.tabs %}
+            <div class="steps__tabs">
+                <div class="steps__tab-wrapper">
+                    {% for tab in fields.tabs %}
+                        <div class="steps__tab {{ loop.index == 1 ? "active" : "" }}" data-tab="{{ tab.title }}">
+                            <div class="steps__wrapper">
+                                {% for step in tab.steps %}
+                                    <div class="step">
+                                        <div class="step__icon">
+                                            {% if step.icon %}
+                                                {{ fn('wp_get_attachment_image', step.icon, 'full', 'false', {'class' : ''}) }}
+                                            {% endif %}
+                                        </div>
+                                        <div class="step__title h2">{{ step.number }}</div>
+                                        <p class="step__subtitle p2">{{ step.title }}</p>
+                                        <p class="step__text p4">
+                                            {{ step.text }}
+                                        </p>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            {% if tab.app_content %}
+                                <div class="steps__apps">
+                                    <div class="steps__links">
+                                        <a href="#">
+                                            <img width="221" height="66" src="{{ fn('get_template_directory_uri') }}/img/google_play.png" alt="Google Play">
+                                        </a>
+                                        <a href="#">
+                                            <img width="201" height="66" src="{{ fn('get_template_directory_uri') }}/img/app_store.png" alt="App Store">
+                                        </a>
+                                    </div>
+                                    <p class="steps__apps-desc p2">
+                                        {{ tab.app_content }}
+                                    </p>
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="steps__tabControls">
+                    {% for tab in fields.tabs %}
+                        <input type="radio" name="tab" id="{{ tab.title }}" value="{{ tab.title }}" {{ loop.index == 1 ? "checked" : "" }}>
+                        <label class="{{ loop.index == 1 ? "active" : "" }}" for="{{ tab.title }}">
+                            {{ tab.title }}
+                        </label>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</section>
