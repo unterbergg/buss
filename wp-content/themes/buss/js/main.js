@@ -128,21 +128,4 @@ document.addEventListener('DOMContentLoaded', function () {
             calculator.querySelector(".calculator__result").style.display = "flex";
         })
     })
-
-
-    document.querySelectorAll('a').forEach((elem) => {
-        elem.addEventListener('click', (e) => {
-            if (e.target.hash !== "") {
-                e.preventDefault();
-                const element = document.querySelector(e.target.hash);
-                const topPos = element.getBoundingClientRect().top + window.pageYOffset - document.getElementById('masthead').offsetHeight;
-console.log(topPos);
-                document.getElementById('menu-toggle').checked = false;
-
-                window.scrollTo({
-                    top: topPos
-                })
-            }
-        })
-    })
 }, false);

@@ -9,7 +9,7 @@ a {
 	&:hover,
 	&:focus,
 	&:active {
-		//text-decoration: underline;
+		//color: $color__link-hover;
 	}
 
 	&:focus {
@@ -19,14 +19,5 @@ a {
 	&:hover,
 	&:active {
 		outline: 0;
-	}
-}
-[class^=nav-], .about__address {
-	a {
-		&:hover,
-		&:focus,
-		&:active {
-			text-decoration: underline;
-		}
 	}
 }

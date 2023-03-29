@@ -19,17 +19,14 @@
                         {% endfor %}
                     </div>
                 {% endif %}
-                {% if options.address or options.phone or fields.address %}
+                {% if fields.address %}
                     <div class="about__address">
-                        {{ fields.address ?? options.address }}
-                        <a href="tel: {{ options.phone }}">
-                            Tel.: {{ options.phone }}
-                        </a>
+                        {{ fields.address }}
                     </div>
                 {% endif %}
             </div>
             {% if fields.form %}
-                <div id="about" class="about__col">
+                <div class="about__col">
                     <div class="contact">
                         {{ fields.form }}
                     </div>

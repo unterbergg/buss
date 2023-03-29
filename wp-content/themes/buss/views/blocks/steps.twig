@@ -29,12 +29,8 @@
                             {% if tab.app_content %}
                                 <div class="steps__apps">
                                     <div class="steps__links">
-                                        <a href="#">
-                                            <img width="221" height="66" src="{{ fn('get_template_directory_uri') }}/img/google_play.png" alt="Google Play">
-                                        </a>
-                                        <a href="#">
-                                            <img width="201" height="66" src="{{ fn('get_template_directory_uri') }}/img/app_store.png" alt="App Store">
-                                        </a>
+                                        <img width="221" height="66" src="{{ fn('get_template_directory_uri') }}/img/google_play.png" alt="Google Play">
+                                        <img width="201" height="66" src="{{ fn('get_template_directory_uri') }}/img/app_store.png" alt="App Store">
                                     </div>
                                     <p class="steps__apps-desc p2">
                                         {{ tab.app_content }}
