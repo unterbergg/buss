@@ -66,7 +66,7 @@
 
             a {
               display: block;
-              font-family: 'Codec Pro';
+              font-family: $font__main;
               font-style: normal;
               font-weight: 500;
               font-size: .875rem;
@@ -113,12 +113,12 @@
         margin-right: 0;
       }
       a {
-        font-family: 'Codec Pro';
+        font-family: $font__main;
         font-style: normal;
         font-weight: 200;
 
         font-size: 18px;
-        line-height: 29px;
+        line-height: 40px;
         align-items: center;
         color: $black;
       }
@@ -128,28 +128,19 @@
     margin: 0 0 1.25rem 0;
     @include respond-to('medium') {
       margin: 0;
-      padding: 3.125rem  0;
+      //padding: 3.125rem  0;
     }
-    display: flex;
-    justify-content: space-between;
+    display: block;
+    //justify-content: space-between;
     @include respond-to('medium') {
       position: relative;
     }
     &__items {
       margin: 0;
       padding: 0;
-      width: 50%;
+      width: 100%;
       display: block;
       @include respond-to('medium') {
-        display: flex;
-        &.left-nav {
-          justify-content: flex-start;
-          padding-left: 20px;
-        }
-        &.right-nav {
-          justify-content: flex-end;
-          padding-right: 12px;
-        }
       }
 
     }
@@ -161,7 +152,7 @@
         margin: 0 0 0 46px;
       }
       a {
-        font-family: 'Codec Pro';
+        font-family: $font__additional;
         font-style: normal;
         font-weight: 500;
         font-size: 14px;
@@ -173,16 +164,16 @@
       }
     }
     &__logo {
-      position: absolute;
+      //position: absolute;
       display: inline-block;
-      left: 50%;
-
-      top: 2.25rem;
-      transform: translate(-50%, 0);
-      @include respond-to('medium') {
-        top: 50%;
-        transform: translate(-50%, -50%);
-      }
+      //left: 50%;
+      //
+      //top: 2.25rem;
+      //transform: translate(-50%, 0);
+      //@include respond-to('medium') {
+      //  top: 50%;
+      //  transform: translate(-50%, -50%);
+      //}
 
       svg {
         width: 169px;

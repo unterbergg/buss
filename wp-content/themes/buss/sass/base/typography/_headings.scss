@@ -47,3 +47,15 @@ h3, .h3 {
 		line-height: 138.39%;
 	}
 }
+
+h3 {
+	&.subtitle {
+		color: #006885;
+		font-weight: 300;
+
+		@include respond-to('medium') {
+			font-size: 38px;
+			line-height: 140.62%;
+		}
+	}
+}

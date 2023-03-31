@@ -22,10 +22,11 @@
     @include respond-to('medium') {
       position: absolute;
       left: 46%;
-      bottom: 90px;
+      top: 50%;
       margin-right: -50%;
-      transform: translate(-50%, 0);
+      transform: translate(-46%, -50%);
       z-index: 1;
+      max-width: 420px;
     }
   }
   &__heading {
@@ -52,7 +53,7 @@
     @include respond-to('small') {
       width: 50%;
       position: relative;
-      margin-top: 3.25rem;
+      margin-top: 1.5rem;
 
       &.odd {
         justify-content: flex-start;
@@ -62,7 +63,7 @@
       }
     }
     & > div {
-      max-width: 260px;
+      max-width: 365px;
       position: relative;
       margin-left: 62px;
       @include respond-to('large') {
@@ -70,7 +71,11 @@
       }
 
       .p2 {
-        margin-bottom: 1rem;
+        margin-bottom: .5rem;
+        font-family: $font__additional;
+      }
+      .p3 {
+        text-align: justify;
       }
       &::before {
         content: counter(num);

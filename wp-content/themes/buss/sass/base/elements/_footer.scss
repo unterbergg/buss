@@ -49,10 +49,10 @@
     }
   }
   .nav-footer {
-    @include respond-from('medium') {
-      width: 70%;
-      order: 1;
-    }
+    //@include respond-from('medium') {
+    //  width: 70%;
+    //  order: 1;
+    //}
   }
   hr {
     width: 100%;
@@ -83,5 +83,12 @@
         margin-left: 0;
       }
     }
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 24px;
   }
 }
